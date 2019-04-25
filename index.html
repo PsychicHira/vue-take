@@ -2,8 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>gshop</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>好吃外卖</title>
+    <link rel="stylesheet" href="./static/style/reset.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1162755_ao55yqf85un.css">
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script>
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+        }, false);
+      }
+      if(!window.Promise) {
+        document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"n'+'>'+'<'+'/'+'script>');
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
