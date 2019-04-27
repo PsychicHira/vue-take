@@ -147,7 +147,8 @@
     components:{
       HeaderTop,
       ShopList
-    }
+    },
+
   }
 </script>
 

@@ -6,6 +6,7 @@
         <input type="search" name="search" placeholder="请输入商家或美食名称" class="search_input">
         <input type="submit" name="submit" class="search_submit">
       </form>
+      <button @click="g()">1233333</button>
     </section>
 </template>
 
@@ -19,6 +20,17 @@
     },
     components:{
       HeaderTop
+    },
+    methods:{
+      g:function(){
+        this.$axios.get('./api/position/40.10038,116.36120')
+          .then(function (response) {
+            console.log(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
     }
   }
 </script>
