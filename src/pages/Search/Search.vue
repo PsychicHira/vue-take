@@ -7,11 +7,14 @@
         <input type="submit" name="submit" class="search_submit">
       </form>
       <button @click="g()">1233333</button>
+      <button @click="ad()">ad</button>
     </section>
 </template>
 
 <script>
   import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
+  import {mapState} from 'vuex'
+  import {mapActions} from 'vuex'
   export default {
     data(){
       return {
@@ -23,14 +26,26 @@
     },
     methods:{
       g:function(){
-        this.$axios.get('./api/position/40.10038,116.36120')
+        console.log(this.$axios)
+        this.$axios.get('/api/position/40.10038,116.36120')
           .then(function (response) {
             console.log(response.data);
           })
           .catch(function (error) {
             console.log(error);
           })
+      },
+      ad:function () {
+//        console.log(this.$store.state.address)
+        this.$store.dispatch('receive_address')
       }
+    },
+    mounted:function () {
+        this.$store.dispatch('receive_address')
+    },
+    computed:{
+      ...mapState(['address']),
+      ...mapActions(['receive_address'])
     }
   }
 </script>

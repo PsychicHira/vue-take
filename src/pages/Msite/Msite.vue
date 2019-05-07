@@ -19,7 +19,7 @@
                 <div class="food_container">
                   <img src="./img/nav/1.jpg">
                 </div>
-                <span>甜品饮品</span>
+                <span>111</span>
               </a>
               <a href="javascript:" class="link_to_food">
                 <div class="food_container">
@@ -119,13 +119,17 @@
           <div class="swiper-pagination"></div>
         </div>
       </nav>
+
       <ShopList></ShopList>
+
     </section>
 </template>
 
 <script>
   import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
   import ShopList from '../../components/ShopList/ShopList.vue'
+  import {mapActions} from 'vuex'
+  import {mapState} from 'vuex'
 
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
@@ -141,14 +145,41 @@
     },
     data(){
       return {
-        title:'好吃外卖'
+        title:'好吃外卖',
+        categorysArr:[]
       }
     },
     components:{
       HeaderTop,
       ShopList
     },
+    computed:{
+      ...mapActions(['receive_categorys']),
+      ...mapState(['categorys','name']),
 
+    },
+    mounted:function () {
+      this.$store.dispatch('receive_categorys'),
+        this.categorysArr= categorys
+    },
+    mounted:function () {
+
+    },
+    watch:{
+      categorys(){
+        console.log(this.categorys)
+        this.$nextTick(()=>{
+//          new Swiper ('.swiper-container', {
+//            loop: true,
+//            // 如果需要分页器
+//            pagination: {
+//              el: '.swiper-pagination',
+//            }
+//          })
+//          console.log(this.$store.state.categorys)
+        })
+      }
+    }
   }
 </script>
 
