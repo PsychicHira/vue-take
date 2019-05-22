@@ -15,10 +15,13 @@
   import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
   import {mapState} from 'vuex'
   import {mapActions} from 'vuex'
+
+  import axios from 'axios'
   export default {
     data(){
       return {
-        title:'搜索'
+        title:'搜索',
+        h:Number
       }
     },
     components:{
@@ -35,13 +38,17 @@
             console.log(error);
           })
       },
-      ad:function () {
-//        console.log(this.$store.state.address)
-        this.$store.dispatch('receive_address')
+      ad:function(){
+//        this.$store.state.age = 19
+//        console.log(this.$store.state.age)
+        console.log(this.$store.state.userInfo)
+
       }
     },
     mounted:function () {
-        this.$store.dispatch('receive_address')
+        const {h} = this
+
+      console.dir(this)
     },
     computed:{
       ...mapState(['address']),

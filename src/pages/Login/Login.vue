@@ -1,44 +1,43 @@
 <template>
-  <div class="on">
     <section class="loginContainer">
       <div class="loginInner">
         <div class="login_header">
-          <h2 class="login_logo">硅谷外卖</h2>
+          <h2 class="login_logo">好吃外卖</h2>
           <div class="login_header_title">
-            <a href="javascript:;" class="on">短信登录</a>
-            <a href="javascript:;">密码登录</a>
+            <a href="javascript:;" :class="{on:msg}" @click="msg=!msg">短信登录</a>
+            <a href="javascript:;" :class="{on:!msg}" @click="msg=!msg">密码登录</a>
           </div>
         </div>
         <div class="login_content">
-          <form>
-            <div class="on">
+          <form @submit.prevent="login">
+            <div :class="{on:msg}">
               <section class="login_message">
-                <input type="tel" maxlength="11" placeholder="手机号">
-                <button disabled="disabled" class="get_verification">获取验证码</button>
+                <input type="tel" maxlength="11" placeholder="手机号" v-model="phone">
+                <button :disabled="phoneNum?null:'disabled'" class="get_verification" :class="{color:phoneNum}" @click.prevent="time">获取验证码{{timeNum}}</button>
               </section>
               <section class="login_verification">
-                <input type="tel" maxlength="8" placeholder="验证码">
+                <input type="tel" maxlength="8" placeholder="验证码" v-model="code">
               </section>
               <section class="login_hint">
-                温馨提示：未注册硅谷外卖帐号的手机号，登录时将自动注册，且代表已同意
+                温馨提示：未注册好吃外卖帐号的手机号，登录时将自动注册，且代表已同意
                 <a href="javascript:;">《用户服务协议》</a>
               </section>
             </div>
-            <div>
+            <div :class="{on:!msg}">
               <section>
                 <section class="login_message">
-                  <input type="tel" maxlength="11" placeholder="手机/邮箱/用户名">
+                  <input type="tel" maxlength="11" placeholder="手机/邮箱/用户名" v-model="name">
                 </section>
                 <section class="login_verification">
-                  <input type="tel" maxlength="8" placeholder="密码">
-                  <div class="switch_button off">
-                    <div class="switch_circle"></div>
+                  <input :type="circleFlag?'tel':'password'" maxlength="8" placeholder="密码" v-model="pwd">
+                  <div class="switch_button " :class="circleFlag?'off':'on'" @click="moveCircle()">
+                    <div class="switch_circle" :class="{move:circleFlag}"></div>
                     <span class="switch_text">...</span>
                   </div>
                 </section>
                 <section class="login_message">
-                  <input type="text" maxlength="11" placeholder="验证码">
-                  <img class="get_verification" src="./img/captcha.svg" alt="captcha">
+                  <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
+                  <img class="get_verification" :src="imgUrl" alt="captcha" @click="refreshImg">
                 </section>
               </section>
             </div>
@@ -50,14 +49,118 @@
           <i class="iconfont icon-jiantou2"><</i>
         </a>
       </div>
+      <AlertTip :alertText="tipText" v-show="showTip" @closeTip="closeTip"></AlertTip>
     </section>
-  </div>
 </template>
 
 <script>
-    //import someComponent from './someComponent'
-    export default {
+  import AlertTip from '../../components/AlertTip/AlertTip'
+  import axios from 'axios'
+  export default {
+      data(){
+        return{
+          msg:true,
+          phone:'',
+          code:'',
+          name:'',
+          pwd:'',
+          captcha:'',
+          timeNum:'',
+          circleFlag:false,
+          imgUrl:'http://localhost:4000/captcha',
+          showTip:false,
+          tipText:''
+        }
+      },
+      computed:{
+        phoneNum(){
+          return /^1\d{10}$/.test(this.phone)
+        }
+      },
+      methods:{
+        time(){
+            if(!this.timeNum){
+              this.timeNum = 30
+              let tid = setInterval(()=> {
+                this.timeNum--
+                if(this.timeNum<=0){
+                  clearInterval(tid)
+                }
+              },1000)
+              //可以正常请求验证码
+              axios.get('http://localhost:4000/sendcode?phone='+this.phone)
+            }
+
+        },
+        //移动圆球
+        moveCircle(){
+          this.circleFlag = !this.circleFlag
+        },
+        //验证码图片刷新
+        refreshImg(){
+          return this.imgUrl='/api/captcha?'+Date.now()
+        },
+        //弹窗提示文字
+        alertTipText(tipText){
+          this.tipText=tipText
+          this.showTip=true
+          return
+        },
+        //登陆验证
+        login(){
+          //短信登陆
+          if(this.msg){
+            if(!this.phoneNum){
+              this.alertTipText('手机号码不正确')
+            }else if(!/^\d{6}$/.test(this.code)){
+              this.alertTipText('验证码不正确')
+            }
+            //手机短信登陆请求
+            axios.post('/api/login_sms',{phone:this.phone,code:this.code}).then(function (rep) {
+              if(rep.data.code===0){
+                //路由页面跳转
+                this.$router.replace('/profile')
+                //使用actions分发，让数据存入state
+                this.$store.dispatch('save_userInfo',rep.data.data)
+              }else {
+                this.alertTipText('登陆失败')
+              }
+            }).catch(function (err) {
+              console.log(err)
+            })
+            //账号密码登陆
+          }else{
+            if(!this.name){
+              this.alertTipText('账号不正确')
+            }else if(!this.pwd){
+              this.alertTipText('密码不正确')
+            }else if(!this.captcha){
+              this.alertTipText('验证码不正确')
+            }
+            //用户名密码登陆请求
+            axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha}).then((rep) => {
+              if(rep.data.code===0){
+                //路由页面跳转
+                this.$router.replace('/Profile')
+                //使用actions分发，让数据存入state
+                this.$store.dispatch('save_userInfo',rep.data.data)
+              }else {
+                this.alertTipText('登陆失败')
+              }
+            }).catch((err) => {
+              console.log(err)
+            })
+          }
+        },
+        closeTip(){
+          this.tipText = ''
+          this.showTip = false
+        }
+      },
+    components:{
+      AlertTip
     }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus" type="text/stylus">
@@ -121,6 +224,8 @@
                 color #ccc
                 font-size 14px
                 background transparent
+                &.color
+                  color black
             .login_verification
               position relative
               margin-top 16px
@@ -149,7 +254,7 @@
                 &.on
                   background #02a774
                 >.switch_circle
-                //transform translateX(27px)
+                  //transform translateX(27px)
                   position absolute
                   top -1px
                   left -1px
@@ -160,6 +265,8 @@
                   background #fff
                   box-shadow 0 2px 4px 0 rgba(0,0,0,.1)
                   transition transform .3s
+                  &.move
+                    transform translateX(27px)
             .login_hint
               margin-top 12px
               color #999

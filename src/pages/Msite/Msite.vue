@@ -14,104 +14,14 @@
       <nav class="msite_nav">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <a href="javascript:" class="link_to_food">
+            <div class="swiper-slide" v-for="categorys in categorysOut">
+              <a href="javascript:" class="link_to_food" v-for="category in categorys">
                 <div class="food_container">
-                  <img src="./img/nav/1.jpg">
+                  <!--<img src="./img/nav/1.jpg">-->
+                  <!--//这里是个坑，img的src前面要加bind，里面才能写表达式，而且，v-for遍历的属性不能加 {{}} 这个大括号-->
+                  <img :src="baseImg+category.image_url">
                 </div>
-                <span>111</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/2.jpg">
-                </div>
-                <span>商超便利</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/3.jpg">
-                </div>
-                <span>美食</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/4.jpg">
-                </div>
-                <span>简餐</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/5.jpg">
-                </div>
-                <span>新店特惠</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/6.jpg">
-                </div>
-                <span>准时达</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/7.jpg">
-                </div>
-                <span>预订早餐</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/8.jpg">
-                </div>
-                <span>土豪推荐</span>
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/9.jpg">
-                </div>
-                <span>甜品饮品</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/10.jpg">
-                </div>
-                <span>商超便利</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/11.jpg">
-                </div>
-                <span>美食</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/12.jpg">
-                </div>
-                <span>简餐</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/13.jpg">
-                </div>
-                <span>新店特惠</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/14.jpg">
-                </div>
-                <span>准时达</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/1.jpg">
-                </div>
-                <span>预订早餐</span>
-              </a>
-              <a href="javascript:" class="link_to_food">
-                <div class="food_container">
-                  <img src="./img/nav/2.jpg">
-                </div>
-                <span>土豪推荐</span>
+                <span>{{category.title}}</span>
               </a>
             </div>
           </div>
@@ -128,55 +38,58 @@
 <script>
   import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
   import ShopList from '../../components/ShopList/ShopList.vue'
-  import {mapActions} from 'vuex'
   import {mapState} from 'vuex'
 
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
+
   export default {
-    mounted(){
-      new Swiper ('.swiper-container', {
-        loop: true,
-        // 如果需要分页器
-        pagination: {
-          el: '.swiper-pagination',
-        }
-      })
-    },
     data(){
       return {
         title:'好吃外卖',
-        categorysArr:[]
+        categorysArr:[],
+        categorysOut:[],
+        categorysIn:[],
+        baseImg:'http://localhost:4000'
       }
     },
     components:{
       HeaderTop,
       ShopList
     },
+    mounted:function () {
+      this.$store.dispatch('receive_categorys')
+    },
     computed:{
-      ...mapActions(['receive_categorys']),
-      ...mapState(['categorys','name']),
-
+//      ...mapActions(['receive_categorys']),      //这里应该是多余的，不注释掉，receive_categorys会触发2次
+      ...mapState(['categorys'])
     },
-    mounted:function () {
-      this.$store.dispatch('receive_categorys'),
-        this.categorysArr= categorys
-    },
-    mounted:function () {
-
+    methods:{
+      changeArr:function () {
+        this.categorysArr.forEach((item)=> {
+          if(this.categorysIn.length<8){
+            this.categorysIn.push(item)
+          }else{
+            this.categorysOut.push(this.categorysIn)
+            this.categorysIn=[]
+            this.categorysIn.push(item)
+          }
+        })
+        this.categorysOut.push(this.categorysIn)
+      }
     },
     watch:{
       categorys(){
-        console.log(this.categorys)
+        this.categorysArr = this.categorys
+        this.changeArr()
         this.$nextTick(()=>{
-//          new Swiper ('.swiper-container', {
-//            loop: true,
-//            // 如果需要分页器
-//            pagination: {
-//              el: '.swiper-pagination',
-//            }
-//          })
-//          console.log(this.$store.state.categorys)
+          new Swiper ('.swiper-container', {
+            loop: true,
+            // 如果需要分页器
+            pagination: {
+              el: '.swiper-pagination',
+            }
+          })
         })
       }
     }
