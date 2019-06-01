@@ -6,7 +6,8 @@
         </span>
 
         <span class="header_login" slot="right">
-        <span class="header_login_text">登录|注册</span>
+          <span class="header_login_text" v-if="!userInfo._id">登录|注册</span>
+          <i class="iconfont icon-geren"></i>
         </span>
 
       </HeaderTop>
@@ -62,7 +63,7 @@
     },
     computed:{
 //      ...mapActions(['receive_categorys']),      //这里应该是多余的，不注释掉，receive_categorys会触发2次
-      ...mapState(['categorys'])
+      ...mapState(['categorys','userInfo'])
     },
     methods:{
       changeArr:function () {

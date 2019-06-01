@@ -8,7 +8,7 @@
             <i class="iconfont icon-geren"></i>
           </div>
           <div class="user-info">
-            <p class="user-info-top">登录/注册</p>
+            <p class="user-info-top">{{userInfo.phone ? userInfo.phone : ''}}</p>
             <p>
                 <span class="user-icon">
                   <i class="iconfont icon-shouji icon-shouji"></i>
@@ -67,11 +67,18 @@
           </div>
         </a>
       </section>
+      <section>
+        <button class="mint-button mint-button--danger mint-button--large" @click="logout">
+          <label class="mint-button-text">退出登陆</label>
+        </button>
+      </section>
     </section>
 </template>
 
 <script>
   import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
+  import {mapState} from 'vuex'
+  import axios from 'axios'
   export default {
     data(){
       return {
@@ -80,6 +87,17 @@
     },
     components:{
       HeaderTop
+    },
+    computed:{
+      ...mapState(['userInfo'])
+    },
+    methods:{
+      logout(){
+        this.$axios.get('/api/logout').then((res)=>{
+          console.log('登出成功')
+          this.$router.replace('/Login')
+        })
+      }
     }
   }
 </script>

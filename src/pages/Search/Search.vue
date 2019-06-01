@@ -39,15 +39,13 @@
           })
       },
       ad:function(){
-//        this.$store.state.age = 19
-//        console.log(this.$store.state.age)
-        console.log(this.$store.state.userInfo)
-
+        this.$axios.get('/data').then((res)=>{
+          console.log(res.data)
+        })
       }
     },
     mounted:function () {
-        const {h} = this
-
+      const {h} = this
       console.dir(this)
     },
     computed:{

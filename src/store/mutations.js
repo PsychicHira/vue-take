@@ -1,4 +1,4 @@
-import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USERINFO} from './mutations-types'
+import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USERINFO,RECEIVE_SHOP_INFO,RECEIVE_SHOP_GOODS,RECEIVE_SHOP_RATING} from './mutations-types'
 
 export default {
   //存入地址
@@ -16,5 +16,17 @@ export default {
   //存入用户信息
   [SAVE_USERINFO](state,userInfo){
     state.userInfo = userInfo
+  },
+  //获取商家信息
+  [RECEIVE_SHOP_INFO](state,shopInfo){
+    state.shopInfo = shopInfo
+  },
+  //获取商家产品
+  [RECEIVE_SHOP_GOODS](state,shopGoods){
+    state.shopGoods = shopGoods
+  },
+  //获取商家评价
+  [RECEIVE_SHOP_RATING](state,shopRating){
+    state.shopRating = shopRating
   }
 }

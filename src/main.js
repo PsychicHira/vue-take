@@ -14,6 +14,8 @@ import store from './store/index.js'
 import axios from 'axios'
 Vue.prototype.$axios = axios
 
+import './mock/mockServer'
+
 /* eslint-disable no-new */
 
 new Vue({

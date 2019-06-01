@@ -1,4 +1,4 @@
-import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USERINFO} from './mutations-types'
+import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USERINFO,RECEIVE_SHOP_INFO,RECEIVE_SHOP_GOODS,RECEIVE_SHOP_RATING} from './mutations-types'
 
 import axios from 'axios'
 export default {
@@ -38,5 +38,24 @@ export default {
   //存入用户信息(短信登陆）
   save_userInfo({commit},userInfo){
     commit(SAVE_USERINFO,userInfo)
+  },
+  //接收商家信息
+  receive_shop_info({commit}){
+    axios.get('/info').then((res)=>{
+      commit(RECEIVE_SHOP_INFO,res.data.data)
+    })
+  },
+  //接收商家产品
+  receive_shop_goods({commit}){
+    axios.get('/goods').then((res)=>{
+      commit(RECEIVE_SHOP_GOODS,res.data.data)
+    })
+  },
+  //接收商家评价
+  receive_shop_rating({commit}){
+    axios.get('/rating').then((res)=>{
+      commit(RECEIVE_SHOP_RATING,res.data.data)
+    })
   }
 }
+

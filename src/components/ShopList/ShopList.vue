@@ -4,7 +4,7 @@
       <i class="iconfont icon-xuanxiang"></i>
       <span class="shop_header_title">附近商家</span>
     </div>
-    <div class="shop_container">
+    <div class="shop_container" >
       <ul class="shop_list">
         <li class="shop_li border-1px" v-for="item in shops">
           <a>
