@@ -17,13 +17,13 @@
               <i class="content-icon"></i>
             </h2>
             <div class="shop-message">
-              <span class="shop-message-detail">5</span>
-              <span class="shop-message-detail">月售 100 单</span>
+              <span class="shop-message-detail">{{shopInfo.score}}</span>
+              <span class="shop-message-detail">月售 {{shopInfo.sellCount}} 单</span>
               <span class="shop-message-detail">
-                硅谷专送
-                <span>约 30 分钟</span>
+                好吃专送
+                <span>约 {{shopInfo.deliveryTime}} 分钟</span>
               </span>
-              <span class="shop-message-detail">距离 1000m</span>
+              <span class="shop-message-detail">距离 {{shopInfo.distance}}</span>
             </div>
           </div>
         </div>

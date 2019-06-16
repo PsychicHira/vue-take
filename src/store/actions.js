@@ -1,4 +1,15 @@
-import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USERINFO,RECEIVE_SHOP_INFO,RECEIVE_SHOP_GOODS,RECEIVE_SHOP_RATING} from './mutations-types'
+import {
+  RECEIVE_ADDRESS,
+  RECEIVE_CATEGORYS,
+  RECEIVE_SHOPS,
+  SAVE_USERINFO,
+  RECEIVE_SHOP_INFO,
+  RECEIVE_SHOP_GOODS,
+  RECEIVE_SHOP_RATINGS,
+  INCREMENT_FOOD_COUNT,
+  DECREMENT_FOOD_COUNT,
+  CLEAR_FOOD_COUNT
+} from './mutations-types'
 
 import axios from 'axios'
 export default {
@@ -46,16 +57,46 @@ export default {
     })
   },
   //接收商家产品
-  receive_shop_goods({commit}){
-    axios.get('/goods').then((res)=>{
-      commit(RECEIVE_SHOP_GOODS,res.data.data)
+  async receive_shop_goods({commit},cb){
+    let result
+    await axios.get('/goods').then((res)=>{
+      // commit(RECEIVE_SHOP_GOODS,res.data.data)
+      result = res.data.data
     })
+    commit(RECEIVE_SHOP_GOODS,result)
+    cb && cb()
   },
   //接收商家评价
-  receive_shop_rating({commit}){
-    axios.get('/rating').then((res)=>{
-      commit(RECEIVE_SHOP_RATING,res.data.data)
+  receive_shop_ratings({commit}){
+    axios.get('/ratings').then((res)=>{
+      commit(RECEIVE_SHOP_RATINGS,res.data.data)
     })
+  },
+  //给食物增加count
+  food_count({commit},{food,isAdd}){
+    if(isAdd){
+      commit(INCREMENT_FOOD_COUNT,{food:food})
+    }else{
+      commit(DECREMENT_FOOD_COUNT,{food:food})
+    }
+  },
+  //food的count清零
+  clear_food_count({commit}){
+    commit(CLEAR_FOOD_COUNT)
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

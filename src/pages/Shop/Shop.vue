@@ -13,8 +13,8 @@
         </div>
       </div>
       <router-view></router-view>
+      <ShopCart></ShopCart>
     </div>
-    <!--<someComponent></someComponent>-->
 </template>
 
 <script>
@@ -22,7 +22,7 @@
   import ShopInfo from '../../components/ShopInfo/ShopInfo.vue'
   import ShopGoods from '../../components/ShopGoods/ShopGoods.vue'
   import ShopRating from '../../components/ShopRating/ShopRating.vue'
-
+  import ShopCart from '../../components/ShopCart/ShopCart.vue'
   export default {
     data () {
       return {
@@ -33,7 +33,8 @@
       ShopHead,
       ShopInfo,
       ShopGoods,
-      ShopRating
+      ShopRating,
+      ShopCart
     },
   }
 </script>
@@ -45,6 +46,7 @@
     line-height 40px
     background #fff
     bottom-border-1px(rgba(7, 17, 27, 0.1))
+    z-index: 39
     .tab-item
       float left
       width: 33.33333%

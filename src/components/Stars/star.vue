@@ -16,7 +16,7 @@
       let starsArr=[]
         this.score=this.rating
         let num= Math.floor(this.score)
-        console.log(num)
+//        console.log(num)
         if(num>=1){
           for(let i=0;i<num;i++){
             this.starsArr.push('on')
