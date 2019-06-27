@@ -10,7 +10,7 @@
 
 项目预览：
 
-一个仿外卖的vue单页应用程序，包含常见的功能
+一个仿外卖的vue单页应用程序Web App（spa），包含常见的功能
 
 ![img](https://github.com/PsychicHira/vue-take/blob/master/img/1.png)
 
