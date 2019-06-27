@@ -8,7 +8,9 @@ import {
   RECEIVE_SHOP_RATINGS,
   INCREMENT_FOOD_COUNT,
   DECREMENT_FOOD_COUNT,
-  CLEAR_FOOD_COUNT
+  CLEAR_FOOD_COUNT,
+  FILTER_SHOP_RATINGS,
+  RECEIVE_SEARCHSHOPS
 } from './mutations-types'
 
 import axios from 'axios'
@@ -83,8 +85,17 @@ export default {
   //food的count清零
   clear_food_count({commit}){
     commit(CLEAR_FOOD_COUNT)
+  },
+  //过滤用户评价
+  filter_shop_ratings({commit},shopRatings){
+    commit(FILTER_SHOP_RATINGS,shopRatings)
+  },
+  //获取搜索商家结果
+  receive_searchshops({commit},shopRatings){
+    commit(RECEIVE_SEARCHSHOPS,shopRatings)
   }
 }
+
 
 
 

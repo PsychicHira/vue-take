@@ -6,7 +6,7 @@
     </div>
     <div class="shop_container" >
       <ul class="shop_list">
-        <li class="shop_li border-1px" v-for="item in shops">
+        <li class="shop_li border-1px" v-for="item in shops" @click="$router.push('/shop')">
           <a>
             <div class="shop_left">
               <img class="shop_img" src="./img/shop/1.jpg">
@@ -36,7 +36,7 @@
                   </div>
                 </section>
                 <section class="shop_rating_order_right">
-                  <span class="delivery_style delivery_right">硅谷专送</span>
+                  <span class="delivery_style delivery_right">好吃专送</span>
                 </section>
               </section>
               <section class="shop_distance">

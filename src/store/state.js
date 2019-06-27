@@ -9,4 +9,5 @@ export default {
   shopGoods:[],  //商家产品
   shopRatings:[],   //商家中的用户评价
   cartFoods:[],    //购物车
+  searchShops:[]
 }

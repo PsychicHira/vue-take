@@ -16,6 +16,7 @@ Vue.prototype.$axios = axios
 
 import './mock/mockServer'
 
+import './filters'
 /* eslint-disable no-new */
 
 new Vue({

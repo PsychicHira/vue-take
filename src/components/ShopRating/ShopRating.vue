@@ -27,14 +27,14 @@
       <div class="split"></div>
       <div class="ratingselect">
         <div class="rating-type border-1px">
-          <span class="block positive active">
-            全部<span class="count">30</span>
+          <span class="block positive" :class="{active:commentNum===3}" @click="toggleComment(3)">
+            全部<span class="count"></span>
           </span>
-          <span class="block positive">
-          满意<span class="count">28</span>
+          <span class="block positive" :class="{active:commentNum===1}" @click="toggleComment(1)">
+          满意<span class="count"></span>
           </span>
-          <span class="block negative">
-          不满意<span class="count">2</span>
+          <span class="block negative" :class="{active:commentNum===2}" @click="toggleComment(2)">
+          不满意<span class="count"></span>
           </span>
         </div>
         <div class="switch on">
@@ -44,7 +44,7 @@
       </div>
       <div class="rating-wrapper">
         <ul>
-          <li class="rating-item" v-for="(item,index) in shopRatings" :key="index">
+          <li class="rating-item" v-for="(item,index) in filterComment" :key="index">
             <div class="avatar">
               <img width="28" height="28"
             src="http://static.galileo.xiaojukeji.com/static/tms/default_header.png">
@@ -59,30 +59,10 @@
             <div class="recommend">
               <span class="iconfont icon-thumb_up"></span>
               <span class="item" v-for="tit in item.recommend">{{tit}}</span>
-              <!--<span class="item">皮蛋瘦肉粥</span>-->
-              <!--<span class="item">扁豆焖面</span>-->
             </div>
-            <div class="time">{{item.rateTime}}</div>
+            <div class="time">{{item.rateTime | dateString}}</div>
           </div>
           </li>
-          <!--<li class="rating-item">-->
-            <!--<div class="avatar">-->
-              <!--<img width="28" height="28"-->
-              <!--src="http://static.galileo.xiaojukeji.com/static/tms/default_header.png">-->
-            <!--</div>-->
-            <!--<div class="content">-->
-              <!--<h1 class="name">aa</h1>-->
-              <!--<div class="star-wrapper">-->
-                <!--<Star :rating="4" :size="24" />-->
-                <!--<span class="delivery">30</span>-->
-              <!--</div>-->
-              <!--<p class="text">不错</p>-->
-              <!--<div class="recommend">-->
-                <!--<span class="iconfont icon-thumb_down"></span>-->
-              <!--</div>-->
-              <!--<div class="time">2016-07-23 21:52:44</div>-->
-            <!--</div>-->
-          <!--</li>-->
         </ul>
       </div>
     </div>
@@ -96,7 +76,8 @@
   export default {
     data () {
       return {
-        msg: "Hello Vue.js"
+        msg: "Hello Vue.js",
+        commentNum:3,
       }
     },
     components: {
@@ -107,19 +88,30 @@
     },
     computed:{
       ...mapState(['shopInfo','shopRatings']),
-//      shopRatings(){
-//        this.$nextTick(()=>{
-//          new BScroll('.rating-wrapper')
-//        })
-//        console.log(1188)
-//      }
+      filterComment(){
+        return this.shopRatings.filter(item=>{
+          if(this.commentNum===3){
+            return true
+          }
+          if(this.commentNum===1){
+            return item.rateType == 0
+          }
+          if(this.commentNum===2){
+            return item.rateType == 1
+          }
+        })
+      }
     },
     watch:{
       shopRatings(){
         this.$nextTick(()=>{
-          var n = new BScroll('.ratings')
-          console.log(n)
+          new BScroll('.ratings')
         })
+      }
+    },
+    methods:{
+      toggleComment(num){
+        this.commentNum = num
       }
     }
   }

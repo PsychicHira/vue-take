@@ -8,3 +8,6 @@ export const RECEIVE_SHOP_RATINGS = 'receive_shop_ratings' //接收商家评价
 export const INCREMENT_FOOD_COUNT = 'increment_food_count' //给食物增加count
 export const DECREMENT_FOOD_COUNT = 'decrement_food_count' //给食物减少count
 export const CLEAR_FOOD_COUNT = 'clear_food_count' //food的count清零
+export const FILTER_SHOP_RATINGS = 'filter_shop_ratings' //过滤用户评价
+export const RECEIVE_SEARCHSHOPS = 'receive_searchshops' //获取搜索商家结果
+
