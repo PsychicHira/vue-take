@@ -2,37 +2,35 @@
 
 通过自学前端，发现坑与坑之间环环相扣，填了一个个的坑到现在，决定做一个外卖项目。技术不经过实践，无法检验是否扎实，通过一个比较完整的项目，也是应聘拿到一个前端工作的底气支柱。
 
-![img](D:/youdaoFile/warden_spirit@163.com/15a3bd940b214153b59ff2fedc5a7460/clipboard.png)
+后台是从网上down下来的，接口里面有一部分，另一部分是用mock模拟。
 
-![img](D:/youdaoFile/warden_spirit@163.com/5824c036b376497fa658fcde77e44d69/clipboard.png)
+这一份非常详细的从头到尾的笔记是自己一个一个字敲出来的，碰到的各种坑，以及如何解决的，自学的过程，没有依赖任何人（身边也没有前端相关的人），都是通过搜索引擎去解决每一个坑。
 
-![img](D:/youdaoFile/warden_spirit@163.com/4a0ac082259e403ea26c7d98e24947ee/clipboard.png)
 
-![img](D:/youdaoFile/warden_spirit@163.com/1fd0f80637314193adcb2a69ff3dd802/clipboard.png)
+
+项目预览：
+
+一个仿外卖的vue单页应用程序，包含常见的功能
+
+![img](E:\demo\vue-take\img\1.png)
+
+![img](E:\demo\vue-take\img\2.png)
+
+![img](E:\demo\vue-take\img\3.png)
 
 
 
 # 技术选型与项目结构
 
-![img](D:/youdaoFile/warden_spirit@163.com/a550f58f3387471e912c9fb05d3fc526/clipboard.png)
-
-
-
 ## 技术选型
 
-![img](D:/youdaoFile/warden_spirit@163.com/a550f58f3387471e912c9fb05d3fc526/clipboard.png)
+![img](E:\demo\vue-take\img\4.png)
 
 
 
 ## 路由
 
-![img](D:/youdaoFile/warden_spirit@163.com/33789bf06e844fbb8c62bd3b06a6e84b/clipboard.png)
-
-
-
-## 组件结构
-
-![img](D:/youdaoFile/warden_spirit@163.com/2de2d0ea77b9418384243c6d40c87f8a/clipboard.png)
+![img](E:\demo\vue-take\img\5.png)
 
 
 
@@ -40,77 +38,7 @@
 
 vue-take
 
-|-- build : webpack 相关的配置文件夹(基本不需要修改)
-
-|-- config: webpack 相关的配置文件夹(基本不需要修改)
-
-​	|-- index.js: 指定的后台服务的端口号和静态资源文件夹 可以指定是否打开浏览器和端口号
-
-|-- node_modules
-
-|-- src : 源码文件夹
-
-​	|-- api------------与后台交互模块文件夹
-
-​	|-- common------------通用资源文件夹如字体、样式、图片等
-
-​		|-- stylus------------css样式文件夹，用的stylus预编译
-
-​			|--mixins.styl------------预设的公用样式文件
-
-​	|-- components------------非路由组件文件夹
-
-​		|-- FooterGuide---------------底部组件文件夹
-
-​			|-- FooterGuide.vue--------底部组件 vue
-
-​	|-- filters------------过滤器文件夹
-
-​	|-- mock------------模拟数据接口文件夹
-
-​	|-- pages-----------------路由组件文件夹
-
-​		|-- Msite---------------首页组件文件夹
-
-​			|-- Msite.vue--------首页组件 vue
-
-​		|-- Search----------------搜索组件文件夹
-
-​			|-- Search.vue---------搜索组件 vue
-
-​		|-- Order--------------订单组件文件夹
-
-​			|-- Order.vue-------订单组件 vue
-
-​		|-- Profile--------------个人组件文件夹
-
-​			|-- Profile.vue-------个人组件 vue
-
-​	|-- router------------路由文件夹
-
-​	|-- store------------vuex相关模块文件夹
-
-​	|-- App.vue---------------应用根组件 vue
-
-​	|-- main.js---------------应用入口 js
-
-|-- static: 静态资源文件夹 全局样式就可以写在这里面
-
-|-- .babelrc: babel 的配置文件
-
-|-- .editorconfig: 通过编辑器的编码/格式进行一定的配置
-
-|-- .eslintignore: eslint 检查忽略的配置
-
-|-- .eslintrc.js: eslint 检查的配置
-
-|-- .gitignore: git 版本管制忽略的配置
-
-|-- index.html: 主页面文件
-
-|-- package.json: 应用包配置文件
-
-|-- README.md: 应用描述说明的 readme 文件
+![img](E:\demo\vue-take\img\6.png)
 
 
 
@@ -132,8 +60,6 @@ vue-take
 1. 在gshop-client路径的cmd命令行中运行npm run build打包，然后文件目录会生成一个dist文件夹，就是打包压缩可以上线的文件
 2. 下载serve（应该是个包），npm install -g serve
 3. 在gshop-client文件夹中运行serve dist，就可以访问5000端口（这里报错了，页面显示找不到path，因为端口被占用，把其它东西都关了即可）
-
-![img](D:/youdaoFile/warden_spirit@163.com/af9a6dbb535b4e60a48b1b83d7c4e941/clipboard.png)
 
 
 
@@ -175,10 +101,6 @@ $ ssh-keygen -t rsa -C warden_spirit@163.com //QQ邮箱不能用 文件名和密
 
 
 
-![img](D:/youdaoFile/warden_spirit@163.com/57d22d36e725476b988036d8ccf89aa8/clipboard.png)
-
-
-
 1. 目录中会生成Aa5604551.pub，把内容粘贴到github中，关联SSH
 
 2. 创建git远程库，在github中new project，名为vue-take
@@ -206,7 +128,7 @@ cnpm install stylus -D
 cnpm install stylus-loader -D
 ```
 
-![img](D:/youdaoFile/warden_spirit@163.com/1a1b2e05cfca4c1fb2cba299471d182f/clipboard.png)
+
 
 - 测试
 
@@ -214,9 +136,7 @@ cnpm install stylus-loader -D
 
 
 
-## 根据目录结构创建底部和路由的vue文件
-
-![img](D:/youdaoFile/warden_spirit@163.com/629085996016472e852daf7eb952e459/clipboard.png)
+根据目录结构创建底部和路由的vue文件
 
 
 
@@ -233,27 +153,25 @@ cnpm install stylus-loader -D
 
 1. 创建App.vue和main.js
 
-
-
 > *遇到问题*：
 >
-> > > ​	此时遇到坑，npm run dev 启动不了，提示没有没有stylus模块，这个时候cnpm i，提示包都装全了
-> > >
-> > > 再次启动，页面提示Cannot GET /
-> > >
-> > > 搜索:
-> > >
-> > > *解决问题：*
-> > >
-> > > 最后发现了是
-> > >
-> > > ```
-> > >  <style scoped lang="stylus" rel="stylesheet/stylus" type="text/stylus"> 
-> > >      
-> > >  </style>
-> > > ```
-> > >
-> > > 的问题，缺少loader，先删除之
+> > ​	此时遇到坑，npm run dev 启动不了，提示没有没有stylus模块，这个时候cnpm i，提示包都装全了
+> >
+> > 再次启动，页面提示Cannot GET /
+> >
+> > 搜索:
+> >
+> > *解决问题：*
+> >
+> > 最后发现了是
+> >
+> > ```
+> > <style scoped lang="stylus" rel="stylesheet/stylus" type="text/stylus"> 
+> >      
+> >  </style>
+> > ```
+> >
+> > 的问题，缺少loader，先删除之
 
 1. 成功启动了项目（要先安装stylus）
 
@@ -362,8 +280,6 @@ tips:
    ```
 
 3. 发现了引用的东西，没有样式，就很奇怪，查了以前的项目和百度，要在引入mint-ui之前引入样式
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/34ec4a074ac146a3885329c65bd92247/clipboard.png)
 
 4. 引入的时候发现，node_modules 文件夹中有的文件夹带下划线 _ 有的不带，百度一下，说带下划线的是cnpm装的，建议能npm的还是用npm
 
@@ -561,18 +477,10 @@ HeadTop.vue
 ### postman
 
 1. 下载安装不多说
-
 2. 注册登陆
-
 3. 创建调试集合名字vue-take
 
-4. 步骤：
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/70ba5f1a5d73493ba27103a1682a03b2/clipboard.png)
-
 但是本次不需要，直接导入
-
-![img](D:/youdaoFile/warden_spirit@163.com/cfa31c87e24843e49dbf867e560c8ddf/clipboard.png)
 
 > tips
 >
@@ -584,8 +492,6 @@ HeadTop.vue
 >   const fs = require('fs')
 >   new Promise()
 >   ```
->
->   ![img](D:/youdaoFile/warden_spirit@163.com/1845e040f9934e76aded20a73a006651/clipboard.png)
 
 
 
@@ -623,19 +529,13 @@ HeadTop.vue
 
    - 在config的index.js配置文件的dev中，添加proxyTable，使用api替代服务器地址	
 
-   - 依照图片修改 index.js配置
-
-     ![img](D:/youdaoFile/warden_spirit@163.com/ea837b7d70484078ba0e0b7d4d7422fc/clipboard.png)
+   - 修改 index.js配置
 
 5. 然后在调用接口的时候直接使用/api，后面接上接口的其他路径信息，就可以，如：
 
    ```
    '/api/position/40.10038,116.36120'
    ```
-
-6. 1
-
-7. 1
 
 ## Vuex
 
@@ -649,7 +549,7 @@ npm install --save vuex
 >
 > 安装完东西，控制台总是报异常
 >
-> ![img](D:/youdaoFile/warden_spirit@163.com/dbd87bd7174f40beba744252e3a6513a/clipboard.png)
+>
 >
 > 搜索解决办法：
 >
@@ -673,7 +573,7 @@ npm install --save vuex
 
 ### 在目录结构下的store，创建vuex仓库
 
-![img](D:/youdaoFile/warden_spirit@163.com/98cb8757ffa34c5786ff4f392dc3dcf3/clipboard.png)
+
 
 ### 如何将 vuex 在项目中使用
 
@@ -823,7 +723,7 @@ export default {
 >
 > code的意思是： code为0的时候，返回数据
 >
-> ![img](D:/youdaoFile/warden_spirit@163.com/a76eb3d69b3644dda3628944ff5fad62/clipboard.png)
+>
 
 ## 动态渲染 ShopList.vue （商家列表）
 
@@ -1537,19 +1437,11 @@ computed:{
 
 1. 左部导航有个测试号码，进入填写测试号码
 
-   ![img](D:/youdaoFile/warden_spirit@163.com/a43511b28d16440c8ced4dbc5db4d084/clipboard.png)
-
 2. 进入服务器文件夹中的短信接口文件
 
-   E:\demo\vue-take-server\util\sms_util.js
-
-3. 修改其中的几个值（第1、2、4个）
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/3c58b7fd89ca40f291a298c19482de60/clipboard.png)
+3. 修改其中的几个值
 
 4. 在后台找到控制台首页，里面有开发者主账号，就可以改了
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/22fe3c964b7b4bc0aab46014d7cee646/clipboard.png)
 
 5. 后台的请求接口是
 
@@ -1579,8 +1471,6 @@ computed:{
 
 3. API文档
 
-   ![1560177210517](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560177210517.png)
-
 4. 请求如果失败，停止计时器，并提示错误信息
 
 > tips：
@@ -1599,7 +1489,7 @@ computed:{
 
 > 发送请求以后，总是报错
 >
-> ![img](D:/youdaoFile/warden_spirit@163.com/130a2790ee1e4913a85f5edd91937efb/clipboard.png)
+>
 >
 > 查阅原因说是跨域问题，源代码
 >
@@ -1625,7 +1515,7 @@ computed:{
 
 请求成功
 
-![img](D:/youdaoFile/warden_spirit@163.com/484ab5ba3dd34b6cbee12681caccb063/clipboard.png)
+
 
 
 
@@ -1641,9 +1531,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 ### 登陆成功跳转路由到profile
 
-> 这段代码报错
->
-> ![img](D:/youdaoFile/warden_spirit@163.com/af5c4aa328b54f3d8f400ce0e7ecd799/clipboard.png)
+> 代码报错
 >
 > ```js
 > axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha}).then(function (rep) {
@@ -1672,12 +1560,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 >   console.log(err)
 > })
 > ```
-
-> tips:
->
-> axios两种写法
->
-> ![img](D:/youdaoFile/warden_spirit@163.com/726266a6cd0b458dba02b0d08287ffa1/clipboard.png)
 
 
 
@@ -1776,9 +1658,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 ### 持久保存vuex登录（刷新不退出）
 
-1. 接口文档如下
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/476269c5f32a4d6fa3ecbcc34a5ef5d7/clipboard.png)
+1. 接口文档
 
 2. node后台实际上设定了session存储为1天，会自动把登陆后的data数据（里面有id和name/phone）存储到session
 
@@ -1877,8 +1757,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
    >
    > - 为什么上面不报错，下面报错
    >
-   >   ![img](D:/youdaoFile/warden_spirit@163.com/b7f5ff09a6864ac5b0f92852d4c9931f/clipboard.png)
-   >
    >   因为初始值是没有数据的，上面是对象的2层，2层是undefined，3层是undefined的里面的值，肯定就报错了。
    >
    >   如何解决，上面div加个v-if，当初始值有的时候，再渲染
@@ -1891,11 +1769,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 1. 让请求的不同地址，返回对应的接口，什么意思呢：目前的接口如下
 
-   ![img](D:/youdaoFile/warden_spirit@163.com/e8886cdb91db4af2aeee3a0d1dd50ea7/clipboard.png)
-
 2. 接口内有商家信息、食物、评价（就是对应了3个子路由组件）
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/601c351dec684041a10272b20947b18b/clipboard.png)
 
 3. 根据不同的请求url，返回不同的接口（其实就是方便调用），为什么要加是code这个键呢，为了模仿真实接口的格式
 
@@ -1974,12 +1848,8 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 此页面有3个子路由：
 
 - ShopGoods
-
 - ShopRating
-
 - ShopInfo
-
-  ![img](D:/youdaoFile/warden_spirit@163.com/33e75c39a26840f1bc598497d0431a89/clipboard.png)
 
 ### 路由配置
 
@@ -2023,15 +1893,11 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
    >
    > 1. 在webpack.prod.conf.js文件里output里面添加：publicPath：'./'
    >
-   > ![img](D:/youdaoFile/warden_spirit@163.com/94f0c5609a814681a8c0981da0c632d0/clipboard.png)
-   >
    > 2.在utils.js文件里添加 publicPath:'../../'
-   >
-   > ![img](D:/youdaoFile/warden_spirit@163.com/3b141346ebc747e9a995460c6404cbc2/clipboard.png)
    >
    > 3.在config/index.js文件里，添加assetsPublicPath:'./'
    >
-   >    ![img](D:/youdaoFile/warden_spirit@163.com/bb4de64b499249bdb96975621dbf61ba/clipboard.png)
+   >
 
 8. 发现没有样式，排查半天，发现要在标签是加 router-link-active
 
@@ -2045,15 +1911,9 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 > 目前出现了问题，就是无法实现Shop页面内的子路由切换
 >
-> ![img](D:/youdaoFile/warden_spirit@163.com/1823b2f0d76c4e52a1e39e23f5d2cd7e/clipboard.png)
->
 > 查出了错误，是components在模版设置的时候少加了s，以及傻逼加了name
 >
-> ![img](D:/youdaoFile/warden_spirit@163.com/cfae7a4f4f5d4fa2a2ad27cd239d7259/clipboard.png)
->
 > 还有我这个傻逼，router打错了
->
-> ![img](D:/youdaoFile/warden_spirit@163.com/a989444411e84245b6abd20b9c76ab13/clipboard.png)
 
 
 
@@ -2100,8 +1960,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
    ```html
    <img class="icon" :src="item.icon?item.icon:false" >
    ```
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/dca3d0438f8e40ecb087ad5a3395ea94/clipboard.png)
 
 4. 去掉没有icon的错img
 
@@ -2155,8 +2013,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
    > 之前左侧滚动不了，是因为没有增加一个class为content的div，看文档知道 better-scroll 是里面的div来移动
    >
-   > ![img](D:/youdaoFile/warden_spirit@163.com/457bda2bdba9418cb555c201103c282e/clipboard.png)
-   >
    > 右侧也出现问题，可以滑动，但是渲染出来的结果只有第一个类目和其下面的7个食物，解决办法同上，加了个class为content的div
 
 
@@ -2164,10 +2020,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 ### 左侧导航和右侧列表移动互相关联
 
 1. 左侧有个current类，来控制颜色变白的选中效果
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/8d8f2e087cea4c938a256a9c78372e0e/clipboard.png)
-
-   ![img](D:/youdaoFile/warden_spirit@163.com/ad99711eb5034c988fc0ebfe496d2190/clipboard.png)
 
 2. 目标功能：
 
@@ -2185,23 +2037,13 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 7. - 基础的参数配置示例
 
-     ![img](D:/youdaoFile/warden_spirit@163.com/e51f8d81e57e4d2089bca4cd15f1b6e0/clipboard.png)
-
    - better-scroll 中有很多事件，用法都是通过 实例.on 来使用
-
-     ![img](D:/youdaoFile/warden_spirit@163.com/7747faf761e4489aa8d09de9f02aa92c/clipboard.png)
 
    - better-scroll 中拥有的事件，通过上面的 实例.on 来使用
 
-     ![img](D:/youdaoFile/warden_spirit@163.com/66c1278eccc1455ba90b875adb3d1b4e/clipboard.png)
-
    - 为了拿到滑动过程中的Y轴的值，需要用到scroll事件
 
-     ![img](D:/youdaoFile/warden_spirit@163.com/ecc61bf529224f8aaa36372c9bd2b4b1/clipboard.png)
-
    - 上面说的 选项中的 [probeType](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#probetype) 是什么意思呢，就是数值是几，对应的scroll触发机制是什么
-
-     ![img](D:/youdaoFile/warden_spirit@163.com/e75efb3ad6eb44e8a809074ee362cdfc/clipboard.png)
 
    - [probeType](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#probetype)  属于选项中的配置，如何使用呢？要在实例中使用
 
@@ -2288,8 +2130,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
   ```
 
   > 遇到问题：此时打印foodTops：
-  >
-  > ![img](D:/youdaoFile/warden_spirit@163.com/e73d60347032469b983112b6669334e8/clipboard.png)
   >
   > 经过推理，top的值应该是到上一个标签的距离（也就是clientHeight，傻逼视频也没有说清楚）
   >
@@ -2394,8 +2234,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 3. 点击左侧分类导航，右侧直接跳转过去
 
    - better-scroll有个scrollTo方法
-
-     ![img](D:/youdaoFile/warden_spirit@163.com/e0b73287404a46638b701e376a21cf5c/clipboard.png)
 
    - 在data中声明一个foodsScroll变量
 
@@ -2755,8 +2593,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
   4. 把数据渲染到标签（略）
 
-![1560399264408](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560399264408.png)
-
 细节修改：
 
 遇到一个问题，就是列表选择了食物，点击图标，Food组件中的CartControl加减数量不对/不显示/减号不显示
@@ -2784,10 +2620,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 1. ShopCart需要拿到食物对象中count属性>0的对象，然后组成一个数组，来遍历到模版中——这就需要用到vuex，把数组存储到vuex中
 2. 需要显示共计多少件商品，以及购物车总价——要用到vuex的getter
 
-图示
-
-![1560359392701](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560359447936.png)
-
 细节
 
 1. 遮罩和购物车上弹出的内容是display：none，要有切换效果
@@ -2798,12 +2630,8 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 实施
 
 1. 复制模版
-
 2. 在Shop.vue中引入并挂载
-
 3. 渲染到标签中
-
-   ![1560327590168](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560327590168.png)
 
 ### 使用cartFoods将内容渲染进标签
 
@@ -2896,7 +2724,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 
 
-点击购物车图标，弹窗和遮罩出现；点击购物车图标和遮罩，弹窗和遮罩消失
+点击购车图标，弹窗和遮罩出现；点击购物车图标和遮罩，弹窗和遮罩消失
 
 1. 在data中声明flag=false
 
@@ -2935,8 +2763,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 
 ### 把这段内部盒子，换成CartControl组件
-
-![1560401015581](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560401015581.png)
 
 传值（这里的food，是上面循环遍历vuex中cartFoods数组里的food）
 
@@ -3045,8 +2871,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 代码结构
 
-![1560429311382](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560429311382.png)
-
 - 当满足起送金额时，not-enough改为enough
 
 > 注意一点，计算函数的名称不能和data中的变量名相同
@@ -3081,8 +2905,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 ### shopCart的上下切换动画效果
 
 1. 找到购物车标签
-
-   ![1560502488200](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560502488200.png)
 
 2. 用trasition包裹
 
@@ -3126,8 +2948,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
    ```
 
    > 始终报错
-   >
-   > ![1560503724985](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560503724985.png)
    >
    > 这个问题的发生，是购物车列表和遮罩的切换用的是v-if，vif有个特点，就是整个元素消失，而v-show则是隐藏，傻逼没有说清楚，这个老是死全家，我日他妈个卖逼
 
@@ -3287,8 +3107,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 ### 评论筛选
 
-![1560701189624](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560701189624.png)
-
 思路
 
 1. 给全部、满意、不满意增加一个点击方法，传入1、2、3来做区分
@@ -3429,8 +3247,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 5. 如果没有数据，就提示后台的错误信息，所以给两个盒子增加v-if属性
 
-   ![1560961926501](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560961926501.png)
-
 
 
 ## 缓存路由组件
@@ -3465,8 +3281,6 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 > ```html
 > <router-link to="/index" replace><router-link>
 > ```
-
-![1560962472441](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560962472441.png)
 
 
 
@@ -3560,9 +3374,7 @@ const Search = ()=> import('../pages/Search/Search.vue')
 
 2. 启用打包可视化: npm run build --report
 
-3. ![1560966243929](C:\Users\老刘\AppData\Roaming\Typora\typora-user-images\1560966243929.png)
-
-4. 优化: 使用 date-fns 代替 moment
+3. 优化: 使用 date-fns 代替 moment
 
    ```js
    // import moment from 'moment'
