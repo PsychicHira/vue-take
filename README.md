@@ -12,11 +12,11 @@
 
 一个仿外卖的vue单页应用程序，包含常见的功能
 
-![img](E:\demo\vue-take\img\1.png)
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/1.png)
 
-![img](E:\demo\vue-take\img\2.png)
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/2.png)
 
-![img](E:\demo\vue-take\img\3.png)
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/3.png)
 
 
 
@@ -24,13 +24,13 @@
 
 ## 技术选型
 
-![img](E:\demo\vue-take\img\4.png)
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/4.png)
 
 
 
 ## 路由
 
-![img](E:\demo\vue-take\img\5.png)
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/5.png)
 
 
 
@@ -38,7 +38,7 @@
 
 vue-take
 
-![img](E:\demo\vue-take\img\6.png)
+![img](https://github.com/PsychicHira/vue-take/blob/master/img/6.png)
 
 
 
