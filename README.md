@@ -1,10 +1,8 @@
 前言
 
-通过自学前端，发现坑与坑之间环环相扣，填了一个个的坑到现在，决定做一个外卖项目。技术不经过实践，无法检验是否扎实，通过一个比较完整的项目，也是应聘拿到一个前端工作的底气支柱。
-
 后台是从网上down下来的，接口里面有一部分，另一部分是用mock模拟。
 
-这一份非常详细的从头到尾的笔记是自己一个一个字敲出来的，碰到的各种坑，以及如何解决的，自学的过程，没有依赖任何人（身边也没有前端相关的人），都是通过搜索引擎去解决每一个坑。
+这一份非常详细的从头到尾的笔记是自己一个一个字敲出来的，碰到的各种坑，以及如何解决的，没有依赖任何人（身边也没有前端相关的人），都是通过搜索引擎去解决每一个坑。
 
 
 
@@ -46,7 +44,7 @@ vue-take
 
 ## 项目测试与打包发布
 
-1. 复制gshop-client_blank文件到项目文件（vue-take）下
+1. gshop-client_blank文件到项目文件（vue-take）下
 2. 修改gshop-client_blank文件名称为gshop-client
 3. 将gshop-client中的package.json里的"name": "gshop"改为自己的项目名称vue-take
 4. 在此文件夹中的config文件夹中修改index.js里的autoOpenBrowser属性改为true，这样在运行时就会自动打开网页
@@ -96,9 +94,9 @@ git commit -m "初始化项目结构" //存入本底库
 git branch dev //查看分支 git branch -v 绿色代表当前分支 git checkout dev 
 
 1. 创建SHH
-
+```
 $ ssh-keygen -t rsa -C warden_spirit@163.com //QQ邮箱不能用 文件名和密码都是Aa5604551 7v+iujB+XcNymkI86GkEuZ/MK1oh0qMwWxEdt37y+Oo   （不知道做什么用，先复制）  //     这里碰见坑，原因是要把c盘用户里面的.ssh文件夹全部删除，重新生成，不然连接不上 //     在生成ssh的时候，文件名密码之类的，全部enter，尤其不能设置文件名，坑死人个b了 
-
+```
 
 
 1. 目录中会生成Aa5604551.pub，把内容粘贴到github中，关联SSH
@@ -128,25 +126,20 @@ cnpm install stylus -D
 cnpm install stylus-loader -D
 ```
 
-
-
 - 测试
 
-把App.vue文件的style里面加上 lang="stylus" ，启动npm run dev ，完美运行，我tm是天才
-
+把App.vue文件的style里面加上 lang="stylus" ，启动npm run dev ，完美运行
 
 
 根据目录结构创建底部和路由的vue文件
 
 
-
 ## 公共样式文件(共用样式)
 
-1. 删除src文件中的东西，按项目目录重新创建
-2. 在common中创建stylus文件夹，创建mixins.styl，把预设的基本样式复制进去
+1. 按项目目录重新创建
+2. 在common中创建stylus文件夹，创建mixins.styl
 3. 在vue模版中，给style增加  lang="stylus" rel="stylesheet/stylus"
 4. 在static文件夹中创建style文件夹，创建reset.css
-
 
 
 ## 创建基本文件让项目可以运行
@@ -174,7 +167,6 @@ cnpm install stylus-loader -D
 > > 的问题，缺少loader，先删除之
 
 1. 成功启动了项目（要先安装stylus）
-
 
 
 ## index.html的移动端配置
@@ -216,7 +208,6 @@ cnpm install stylus-loader -D
 4. main.js 引入 App.vue 文件，实例化一个Vue
 5. 通过 render ，让 App.vue 的内容 ，全替换掉 index.html 里 ID 为 app 的 div 区域
 6. App.vue 里面，自然要把路由的 view 放进去了
-
 
 
 ### 安装
@@ -297,7 +288,6 @@ tips:
 
 ## 切图——4个路由页面的
 
-视频给了写好的，直接复制结构和样式，可能目的是逻辑，而不是这些基本功
 
 Msite.vue
 
@@ -306,7 +296,6 @@ Order.vue
 Search.vue
 
 Profile.vue
-
 
 
 ## 准备icon
@@ -326,9 +315,7 @@ Profile.vue
 由于顶部导航的内容有变化，可以看作和路由是一体的，所以可以提取成一个模块，提高复用性
 
 1. 新建一个 HeadTop.vue
-2. 把 head 标签结构复制进去
-3. 把关于 head 的样式复制进去
-4. 让其它路由页面引入 HeadTop.vue 
+2. 让其它路由页面引入 HeadTop.vue 
 
 
 
@@ -452,8 +439,7 @@ HeadTop.vue
 ## 组件ShopList.vue（把首页的 ShopList 商家列表单独提取出来）
 
 1. 新建文件，在components新建ShopList，（和HeaderTop一样，单独弄出来组件）
-2. 把html标签和样式复制过去
-3. 在Msite.vue中引入 ShopList.vue ，并注册成组件，在模版中使用
+2. 在Msite.vue中引入 ShopList.vue ，并注册成组件，在模版中使用
 
 > tips
 >
@@ -862,11 +848,10 @@ methods:{
 
 ## 补充加载中的提示图svg，提高用户体验
 
-##  
 
 ## 解决 ShopList.vue 商家列表中的星星消失问题
 
-图片路径样式有问题，从源码复制过来改路径修复成功
+图片路径样式有问题
 
 
 
@@ -964,7 +949,7 @@ components:{
 >
 > 仍然错误，于是发现，自己对computed的理解不够
 >
-> 视频中的思路是，v-for遍历是主参数是computed创建的函数名，在此函数中return一个数组，作为主参数的内容来遍历
+> 思路是，v-for遍历是主参数是computed创建的函数名，在此函数中return一个数组，作为主参数的内容来遍历
 >
 > 而我用自己的思路，用mounted来实现数据计算，把结果给data中声明的一个数组，用此数组来v-for遍历
 >
@@ -1007,9 +992,7 @@ components:{
 
 1. 新建文件，Login.vue页面
 
-2. 把html结构和样式复制进去
-
-3. 制作一个左上角回退的功能
+2. 制作一个左上角回退的功能
 
    ```html
    给左上角的<增加一个点击 $router.back() 回退方法
@@ -1019,7 +1002,7 @@ components:{
    </a>
    ```
 
-4. 制作一个在Login页面底部导航不显示的功能
+3. 制作一个在Login页面底部导航不显示的功能
 
    - 配置路由的时候，加上mata属性
 
@@ -1221,7 +1204,7 @@ computed:{
 
 1. 在组件文件夹内创建 AlertTip 文件夹，创建 AlertTip.vue 文件
 
-2. 把模版和样式复制进去，模版和代码部分如下
+2. 模版和代码部分如下
 
    ```js
    <template>
@@ -1879,7 +1862,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 6. 在Shop.vue下引入4个子路由，并注册
 
-7. 这个时候复制静态的样式
+7. 这个时候静态的样式
 
    > 发现错误
    >
@@ -1951,7 +1934,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 ### 丰满ShopGoods
 
-1. 复制静态模版
+1. 创建静态模版
 
 2. mapState shopInfo(商家信息)
 
@@ -2131,7 +2114,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
   > 遇到问题：此时打印foodTops：
   >
-  > 经过推理，top的值应该是到上一个标签的距离（也就是clientHeight，傻逼视频也没有说清楚）
+  > 经过推理，top的值应该是到上一个标签的距离（也就是clientHeight）
   >
   > 解决办法：用+=把top值存储进数组
   >
@@ -2299,7 +2282,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 实施
 
 1. 在components文件夹中新建CartControl组件
-2. 将模版复制进去
+2. 模版
 3. 在shopGoods中挂载CartControl组件
 
 > 遇到问题，加减号不显示，需要阿里icon中在项目里新加图标，并更新链接，然后在项目index.html中重新更改引入字体的链接
@@ -2465,7 +2448,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 ## ShopCart组件
 
-1. 复制模版
+1. 模版
 2. Shop.vue中引入并挂载组件
 
 
@@ -2484,7 +2467,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 - 基本
 
-  1. 复制模版
+  1. 模版
   2. 渲染进ShopGoods.vue的模版标签，结构如下
 
   ```html
@@ -2629,7 +2612,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 实施
 
-1. 复制模版
+1. 模版
 2. 在Shop.vue中引入并挂载
 3. 渲染到标签中
 
@@ -2968,8 +2951,8 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
          }
    ```
 
-   - 视频中如此也滑动不了，滑动第二下才可以，原因在于内置性能会分析用户是否想滑动，如果想，就会刷新获取content的高度，因为初始时，不能获取到content高度，因为数据是动态渲染的
-   - 视频又出现一个bug，此时在购物车内部增加食物，会点击1次增加好多次，原因在于new出来的实例不是单例，在于触发了滑动插件内部的回调，每次点击都能与新new出.需要声明一个属性来存储实例，用if判断实例是否存在，存在就不用新new
+   - 如此也滑动不了，滑动第二下才可以，原因在于内置性能会分析用户是否想滑动，如果想，就会刷新获取content的高度，因为初始时，不能获取到content高度，因为数据是动态渲染的
+   - 又出现一个bug，此时在购物车内部增加食物，会点击1次增加好多次，原因在于new出来的实例不是单例，在于触发了滑动插件内部的回调，每次点击都能与新new出.需要声明一个属性来存储实例，用if判断实例是否存在，存在就不用新new
 
 > 此时还不能滑动，原因在于遍历的标签写错了，better-scroll的原理是盒子下面的第一个子元素滑动，我把遍历卸载ul上，那么遍历的是DIV下面的一个ul，所以整体不能滑动，要把v-for卸载ul下面的li中。
 
@@ -3054,7 +3037,7 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
 
 ## shopRating组件
 
-1. 把模版复制过来
+1. 模版
 
 2. 钩子函数mounted中分发action
 
