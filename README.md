@@ -4,6 +4,10 @@
 
 这一份非常详细的从头到尾的笔记是自己一个一个字敲出来的，碰到的各种坑，以及如何解决的，没有依赖任何人（身边也没有前端相关的人），都是通过搜索引擎去解决每一个坑。
 
+7.13最新上传了服务器：
+
+根目录有一个vue-take-server.rar，解压后运行npm start，开启。
+
 
 
 项目预览：
@@ -2356,10 +2360,10 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
      >    
      >    ```js
      >    <div class="iconfont icon-add_circle" @click="count(true)"></div>
-     >    ```
-     >    
+     > ```
+     >
      > 8. 增减方法
-     >    
+     >   
      >    ```js
      >    props:[
      >      'food'
@@ -2370,10 +2374,11 @@ axios.post('/api/login_pwd',{name:this.name,pwd:this.pwd,captcha:this.captcha})
      >      }
      >    }
      >    ```
-     > 
-     > ```
      >
+     > ```
+     > 
      > - -------------------------------------------------分割线--------------------------------
+     > ```
 
 - 在mutations中创建变更数据的方法
 
